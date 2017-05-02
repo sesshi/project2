@@ -8,6 +8,9 @@ var bodyParser = require('body-parser');
 var index = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
 
+// import database
+require('./app_server/models/db');
+
 var app = express();
 
 // view engine setup
