@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var mlab = require('../../mlab-user-pass');
+var mlab = require('../../mlab-user-pass'); // place 'mlab-user-pass.js' in root project dir
 var gracefulShutdown;
 
 // if needs user and pass mongodb://username:password@localhost:27027/database
