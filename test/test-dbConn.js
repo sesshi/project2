@@ -23,3 +23,20 @@ describe('Mlab-db-login-details', function(){
         assert.equal(mlab.pass, 'password', 'The user name should be matt');
     });
 });
+
+describe('Mlab database connection', function(){
+    before(function(done){//before the test begins
+      db = mongoose.connect('mongodb://localhost/test');
+      done();
+    });
+
+    after(function(done){// after all the test have finished
+        mongoose.connection.close();
+        done();
+    });
+
+    beforeEach(function(){//run before each test
+        //nothig to setup
+    })
+
+});
