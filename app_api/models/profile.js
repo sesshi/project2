@@ -31,15 +31,3 @@ var profileSchema = new mongoose.Schema({
 });
 
 mongoose.model('Profile', profileSchema, 'profiles');
-
-/*
-
-db.profiles.save({
-    username: '',
-    dateOfBirth: new Date("1984-03-29"),
-    gender: 0,
-    aboutMe: 'This is some about me description',
-    coords: [115, -32],
-});
-
-*/

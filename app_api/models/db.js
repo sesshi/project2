@@ -59,5 +59,7 @@ process.on('SIGTERM', function() {
     });
 });
 
-/* import models */
-// require('./schema-name');
+/*********************************/
+/*      IMPORT YOUR MODELS       */
+/*********************************/
+require('./profile');

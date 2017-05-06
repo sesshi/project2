@@ -10,7 +10,7 @@ var routesAPI = require('./app_api/routes/index');
 // var users = require('./app_server/routes/users');
 
 // import database
-require('./app_server/models/db');
+require('./app_api/models/db');
 
 var app = express();
 
@@ -27,6 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/api', routesAPI);
 
 // app.use('/users', users);
 
