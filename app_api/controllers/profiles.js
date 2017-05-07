@@ -13,11 +13,27 @@ module.exports.profilesCreate = function (req, res) {
 
 // api/profiles/:userid     (try: localhost:3000/api/profiles/590f1cd3f36d281fc3b965c1)
 module.exports.profilesReadOne = function (req, res) {
-    profile
-        .findById(req.params.userid) //Get userid from URL parameters and give it to findById method.
-        .exec(function(err, profile) { //Define callback to accept possible parameters.
-            sendJsonResponse(res, 200, profile); // Send JSON document found as a JSON response.
+    if (req.params && req.params.userid) { //Check that profileid exists in the request parameters
+        profile
+            .findById(req.params.userid) //Get userid from URL parameters and give it to findById method.
+            .exec(function(err, profile) { //Define callback to accept possible parameters.
+                if (!profile) { //Return 404 if no profile found
+                    sendJsonResponse(res, 404, { 
+                        "message": "profileid not found"
+                    });
+                    return;
+                } else if (err) { //Return 404 if Mongoose has an error
+                    sendJsonResponse(res, 404, err)
+                    return;
+                }
+                sendJsonResponse(res, 200, profile); // If there are no errors in Mongoose, Send JSON doocument 200 response.
+            });
+    } else { 
+        sendJsonResponse(res, 404, { //
+            "message": "No profileid in the request"
         });
+    } 
+    
 };
 module.exports.profilesDeleteOne = function (req, res) {
     sendJsonResponse(res, 200, {"status" : "success"});
