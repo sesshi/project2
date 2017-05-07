@@ -1,5 +1,6 @@
+require('../models/db');
 var mongoose = require('mongoose');
-// var profile = mongoose.model('Profile'); // error when trying to load schema
+var profile = mongoose.model('Profile'); // error when trying to load schema
 
 var sendJsonResponse = function(res, status, content) {
     res.status(status);
@@ -9,6 +10,8 @@ var sendJsonResponse = function(res, status, content) {
 module.exports.profilesCreate = function (req, res) {
     sendJsonResponse(res, 200, {"status" : "success"});
 };
+
+// api/profiles/:userid     (try: localhost:3000/api/profiles/590f1cd3f36d281fc3b965c1)
 module.exports.profilesReadOne = function (req, res) {
     profile
         .findById(req.params.userid) //Get userid from URL parameters and give it to findById method.

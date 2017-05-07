@@ -20,7 +20,7 @@ var profileSchema = new mongoose.Schema({
     aboutMe: String,
     coords: {
         type: [Number], //longitude, latitude ordering
-        index: '2dshpere'
+        index: '2dsphere'
     },
     joinDate: {
         type: Date,
