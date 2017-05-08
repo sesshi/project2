@@ -1,6 +1,6 @@
 require('../models/db');
 var mongoose = require('mongoose');
-var profile = mongoose.model('Profile'); // error when trying to load schema
+var profile = mongoose.model('Profile'); 
 
 var sendJsonResponse = function(res, status, content) {
     res.status(status);
