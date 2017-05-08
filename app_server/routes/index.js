@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var ctrlOthers = require('../controllers/others');
 
 // var passport = require('passport');
 
@@ -8,15 +9,18 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Project 2' });
 });
 
+/* Other pages */
+router.get('/about', ctrlOthers.about);
+
 // router.get('/register', function(req, res) {
 //       res.render('register', { });
 // });
 
 // router.post('/register', function(req, res) {
-    
+
 //       Account.
-//         register(new Account({ username : req.body.username }), 
-//              req.body.password, 
+//         register(new Account({ username : req.body.username }),
+//              req.body.password,
 //          function(err, account) {
 //                    if (err) {
 //                      return res.render('register', { account : account });
