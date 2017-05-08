@@ -1,9 +1,19 @@
 doctype html
-html
+html(lang='en')
   head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='Pairletes Fitness Matchmaking App')
+    meta(name='author', content='Matt Seneque, Kieran Quirke-Brown and Debbie Yung')
+    link(rel='icon', href='../../favicon.ico')
     title= title
+
+    link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+    link(href='/stylesheets/ie10-viewport-bug-workaround.css', rel='stylesheet')
     link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    link(href='https://fonts.googleapis.com/css?family=Lobster+Two', rel='stylesheet')
+
+    
     script(src="/js/bootstrap.js")
     script(src="/socket.io/socket.io.js")
     script(src="http://code.jquery.com/jquery-1.11.1.js")
@@ -27,9 +37,36 @@ html
         //- });
 
   body
-
-    #content(width='50%', float='left')    
-      block content
+  .site-wrapper
+      .site-wrapper-inner
+        .cover-container
+          .masthead.clearfix
+            .inner
+            h3.masthead-brand
+              a.logo(href="/") Pairletes
+            nav
+              ul.nav.masthead-nav
+                if (!user)
+                  li.active
+                    a(href="/login") Login
+                li
+                  a(href="/register") Register
+                if (user)
+                  li
+                    You are currently logged in as #{user.username}
+                    a(href="/logout") Logout
+                li
+                  a(href='/about/') About
+          .inner.cover
+            block content
+          .mastfoot
+            .inner
+              p
+                | &copy; Matt Seneque, Kieran Quirke-Brown and Debbie Yung 
+                
+    script(src='/js/jquery-3.2.1.min.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/js/ie10-viewport-bug-workaround.js')
 
       
     //- #chatwindow(width='20%', float='right')
