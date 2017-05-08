@@ -15,8 +15,8 @@ a:hover {
 .btn-default:focus {
   color: #333;
   text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
+  background-color: #F7E326;
+  border: 1px solid #F7E326;
 }
 
 
@@ -72,6 +72,7 @@ body {
 .logo{
   font-family: 'Lobster Two', cursive;
   font-size: 1.4em;
+  color: #F7E326;
 }
 
 .masthead-nav > li {
